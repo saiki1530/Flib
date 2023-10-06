@@ -14,7 +14,7 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', [ProductController::class, 'index']);
+Route::get('/', [ProductController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,3 +27,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::name('client')->group(function (){
+    Route::get('/productdetail', [ProductController::class, 'productDetail'])->name('productdetail');
+    Route::get('/reviewdetail', [ProductController::class, 'reviewDetail'])->name('reviewdetail');
+});

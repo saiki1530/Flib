@@ -11,4 +11,13 @@ class ProductController extends Controller
 
         return view('page.index');
     }
+    
+    public function productDetail()
+    {
+        return view('page.productDetail');
+    }
+    public function reviewDetail()
+    {
+        return view('page.reviewDetail');
+    }
 }

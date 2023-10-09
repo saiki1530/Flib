@@ -37,8 +37,10 @@
 
                             <div class="ml-2">
                                 {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
+                                    'terms_of_service' =>
+                                        '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Terms of Service') . '</a>',
+                                    'privacy_policy' =>
+                                        '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Privacy Policy') . '</a>',
                                 ]) !!}
                             </div>
                         </div>
@@ -46,14 +48,20 @@
                 </div>
             @endif
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+            <div class="flex items-center justify-between mt-4">
+                <a class="underline text-sm text-gray-600  hover:text-gray-900 rounded-md  " href="{{ route('login') }}">
+                    {{ __('Đã có tài khoản') }}
                 </a>
 
                 <x-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('Đăng ký ') }}
                 </x-button>
+            </div>
+            <div class="mt-4">
+                <a href="{{ route('auth.google') }}" class="flex items-center justify-center flex-1 border py-2 px-4 rounded-sm hover:bg-slate-200 hover:bg-opacity-20">
+                    <img class="mr-2" src="{{ asset('assets/img/icon/google.png') }}" alt="logo-google" width="20">
+                    đăng nhập với google
+                </a>
             </div>
         </form>
     </x-authentication-card>

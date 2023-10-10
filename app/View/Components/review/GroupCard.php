@@ -6,14 +6,12 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class details-content extends Component
+class GroupCard extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    protected $dataListReview;
+    public function __construct($data)
     {
-        //
+        $this->dataListReview = $data;
     }
 
     /**
@@ -21,6 +19,6 @@ class details-content extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.review.details-content');
+        return view('components.review.group-card', ['dataListReview' => $this->dataListReview]);
     }
 }

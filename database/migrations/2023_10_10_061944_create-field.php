@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('review', function (Blueprint $table) {
+        Schema::create('field', function (Blueprint $table) {
             $table->id();
-            $table->integerIncrements('id_user');
-            $table->integerIncrements('id_project');
-            $table->string('content');
-            $table->boolean('visibility')->default(true);
-            $table->string('status');
+            $table->string('name');
+            $table->integer('amount');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('review');
+        Schema::dropIfExists('field');
     }
 };

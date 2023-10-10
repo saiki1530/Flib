@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class group-card extends Component
+class detailsContent extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class group-card extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.review.group-card');
+        return view('components.review.details-content');
     }
 }

@@ -15,6 +15,8 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="projects.html">Projects</a></li>
+                <li><a href="{{ route('reviews.index') }}">review</a></li>
+
                 <li><a href="blog.html">Blog</a></li>
                 <li class="dropdown"><a href="#"><span>Dropdown</span>
                         <i class="bi bi-chevron-down dropdown-indicator"></i></a>

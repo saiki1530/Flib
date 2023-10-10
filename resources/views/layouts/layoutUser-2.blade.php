@@ -30,9 +30,9 @@
 
         <!-- Template Main CSS File -->
         <link href="/assets/css/main.css" rel="stylesheet">
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-
-
+        @livewireStyles
     </head>
 
     <body>
@@ -57,7 +57,7 @@
 
         <!-- Template Main JS File -->
         <script src="/assets/js/main.js"></script>
-
+        @livewireStyles
     </body>
 
 </html>

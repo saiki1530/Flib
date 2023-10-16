@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\FavouriteController;
+use App\Http\Controllers\item_page_projeck\ItemProjeckController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReportController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +29,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+    Route::get('/like',[ItemProjeckController::class,'index']);
+    Route::get('/like/{id}',[ItemProjeckController::class,'GetOne'])->name('GetOne');
+    Route::post('/new-favourite',[FavouriteController::class,'addFavourite'])-> name('new-favourite');
+    Route::post('/delete-favourite',[FavouriteController::class,'deleteFavourite'])-> name('delete-favourite');
+
+    Route::post('/report',[ReportController::class,'addReport'])->name('report');
 
 require __DIR__.'/auth.php';
 

@@ -1,0 +1,121 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+.cmt{
+    margin-top: 20px;
+}
+.cmt-item p{
+    font-size: 16px;
+    font-weight: 500;
+}
+.cmt-item span{
+    font-size: 14px;
+    font-weight: 300;
+    padding-left: 15px;
+}
+.cmt-item{
+    background-color: #F0F2F5;
+    padding: 5px 10px 10px 10px;
+    border-radius: 15px;
+    width: 70%;
+}
+.cmt-item-content{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 15px;
+}
+.cmt-item-content span#reply-click:hover {
+    cursor: pointer;
+}
+.cmt-item-content span:nth-child(2) {
+    color: rgb(13, 237, 162);
+    font-weight: 700;
+}
+.project-cmt{
+    width: 100%;
+    background-color: rgb(220, 220, 220);
+    padding: 30px 0 30px 0;
+    border-radius: 15px;
+}
+.project-cmt-body{
+    width: 65%;
+    min-height: 200px;
+    background-color: #fff;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+}
+.cmt-text{
+    width: 80%;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    background-color: #e9ecef;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+.reply-text{
+    width: 80%;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ffffff;
+    margin-right: 10px;
+}
+.cmt-button{
+    width: 18%;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    background-color: #98E4FF;
+    color: #fff;
+}
+.cmt-button-item{
+    font-size: 23px;
+}
+.cmt-item-send{
+    width: 80%;
+    margin:  0 auto;
+    display: flex;
+}
+.cmt-reply-body{
+    width: 60%;
+    margin-left: 10%;
+}
+.cmt-reply-item{
+    padding-left: 10%;
+}
+.cmt-reply-item p{
+    font-size: 15px;
+    font-weight: 500;
+}
+.cmt-reply-item span{
+    font-size: 14px;
+    font-weight: 300;
+}
+.cmt-reply-item{
+    background-color: #cfd1d5;
+    padding: 5px 10px 10px 10px;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+.cmt-item-send{
+    margin-top: 15px;
+}
+.item-form-reply{
+    display: none;
+}
+@keyframes fadeIn {
+    from {
+    opacity: 0;
+    transform: translateY(-10%);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+.item-form-reply-click{
+    animation: fadeIn 0.25s ease-in-out;
+    display: block;
+}

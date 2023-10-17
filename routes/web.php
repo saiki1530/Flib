@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\item_page_projeck\ItemProjeckController;
 use App\Http\Controllers\ProfileController;
@@ -28,12 +29,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-    Route::get('/like',[ItemProjeckController::class,'index']);
-    Route::get('/like/{id}',[ItemProjeckController::class,'GetOne'])->name('GetOne');
+
+    Route::get('/favourite',[ItemProjeckController::class,'index']);
+    Route::get('/favourite/{id}',[ItemProjeckController::class,'GetOne'])->name('GetOne');
     Route::post('/new-favourite',[FavouriteController::class,'addFavourite'])-> name('new-favourite');
     Route::post('/delete-favourite',[FavouriteController::class,'deleteFavourite'])-> name('delete-favourite');
 
     Route::post('/report',[ReportController::class,'addReport'])->name('report');
+
+    Route::post('new-comment',[CommentController::class,'addComment'])->name('new-comment');
+    Route::post('new-reply',[CommentController::class,'addReply'])->name('new-reply');
+});
 
 require __DIR__.'/auth.php';

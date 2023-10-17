@@ -19,7 +19,7 @@ class FavouriteController extends Controller
         }
        
         
-        return redirect('/like/' . $request->id_project);
+        return redirect('/favourite/' . $request->id_project);
         
     } 
     public function deleteFavourite(Request $request){
@@ -29,6 +29,6 @@ class FavouriteController extends Controller
         if($checkfavourite!=""){
             $checkfavourite->delete();
         }
-        return redirect('/like/' . $request->id_project);      
+        return redirect('/favourite/' . $request->id_project);      
     }
 }

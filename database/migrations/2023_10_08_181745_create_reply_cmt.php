@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('reply_cmt', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->unsignedBigInteger('id_users');
             $table->unsignedBigInteger('id_cmt');
             $table->string('text_cmt');

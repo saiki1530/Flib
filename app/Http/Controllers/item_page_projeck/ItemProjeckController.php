@@ -16,6 +16,11 @@ class ItemProjeckController extends Controller
     }
     public function GetOne($id){
         $data = Project::find($id);
+        $comments = $data->comments;
+        $sortedComments = $comments->sortByDesc('created_at');
+        foreach ($comments as $key => $value) {
+            $replys = $value -> replys;
+        }
         if (Auth::check()) {
             $user = Auth::user()->id;
         }
@@ -23,7 +28,7 @@ class ItemProjeckController extends Controller
                     ->where('id_project', $id)
                     ->first();
         
-        return view('item_page_projeck.projectid',['dataid'=>$data,'check'=>$checkfavourite]);
+        return view('item_page_projeck.projectid',['dataid'=>$data,'check'=>$checkfavourite,'comment'=>$sortedComments]);
     }
     public function getlike(Request $req){
         $data = $req->validate([

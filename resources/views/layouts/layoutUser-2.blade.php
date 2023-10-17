@@ -30,15 +30,15 @@
 
     <!-- Template Main CSS File -->
     <link href="/assets/css/main.css" rel="stylesheet">
-
+    @stack('style')
 
 
 </head>
 
 <body>
     @include('layouts.header-2')
-
     @yield('noidung')
+   
 </main>
     @include('layouts.footerUser')
 
@@ -58,6 +58,7 @@
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
+    @stack('scripts')
 
 </body>
 

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('source');
             $table->string('ppt');
             $table->integer('assess');
+            $table->string('technical');
             $table->integer('like');
             $table->string('product_slug');
             $table->integer('visibility');

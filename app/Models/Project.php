@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'id_project');
+    }
     use HasFactory;
     protected $table = 'project';
     protected $fillable = [

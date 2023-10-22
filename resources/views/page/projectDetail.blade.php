@@ -1,5 +1,8 @@
+@push('customCSS')
 <link rel="stylesheet" type="text/css" href="{{asset('assetsProductDetail/lib/bootstrap/css/bootstrap.min.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('assetsProductDetail/css/style.css')}}" />
+@endpush
+
 @extends('layouts\layoutUser-2')
 
 @section('title')

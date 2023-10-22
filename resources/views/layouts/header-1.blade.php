@@ -15,8 +15,8 @@
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="{{ route('clientproductdetail') }}">Projects</a></li>
-                <li><a href="{{ route('clientreviewdetail') }}">Review</a></li>
+                <li><a href="{{ route('client.project.detail') }}">Projects</a></li>
+                <li><a href="{{ route('client.review.detail') }}">Review</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li class="dropdown"><a href="#"><span>Dropdown</span>
                         <i

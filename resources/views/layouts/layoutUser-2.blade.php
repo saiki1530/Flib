@@ -30,7 +30,7 @@
 
     <!-- Template Main CSS File -->
     <link href="/assets/css/main.css" rel="stylesheet">
-    @stack('style')
+    @stack('styles')
 
 
 </head>

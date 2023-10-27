@@ -12,11 +12,11 @@
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="{{route('home')}}" class="active">Home</a></li>
+                {{-- <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li> --}}
+                <li><a href="{{route('project')}}">Projects</a></li>
+                <li><a href="blog.html">Review</a></li>
                 <li class="dropdown"><a href="#"><span>Dropdown</span>
                         <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>

@@ -26,6 +26,8 @@ class Project extends Model
         'ppt',
         'assess',
         'like',
+        'donwload',
+        'technical',
         'product_slug',
         'visibility',
     ];

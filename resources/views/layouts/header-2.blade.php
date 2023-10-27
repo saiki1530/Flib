@@ -13,11 +13,11 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html" class="active">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="{{route('home')}}">Home</a></li>
+          {{-- <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li> --}}
+          <li><a href="{{route('project')}}" class="active">Projects</a></li>
+          <li><a href="blog.html">Review</a></li>
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i
                 class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
@@ -47,14 +47,3 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
-      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
-
-        <h2>Projects</h2>
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li>Projects</li>
-        </ol>
-
-      </div>
-    </div>

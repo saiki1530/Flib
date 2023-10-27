@@ -3,9 +3,11 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\item_page_projeck\ItemProjeckController;
+use App\Http\Controllers\ListProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ReportController;
 
 /*
@@ -19,7 +21,11 @@ use App\Http\Controllers\ReportController;
 |
 */
 
-Route::get('/', [ProductController::class, 'index']);
+Route::get('/', [ProductController::class, 'index'])->name('home');
+Route::get('/project', [ListProjectController::class,'index'])->name('project');
+Route::get('/project-field/{id}',[ListProjectController::class,'field'])->name('project-field');
+
+Route::get('/project-details/{id}',[ProjectController::class,'index'])->name('project-details');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

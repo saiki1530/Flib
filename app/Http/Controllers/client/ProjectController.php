@@ -39,6 +39,8 @@ class ProjectController extends Controller
             'ppt' => '',
             'assess' => '',
             'like' => '',
+            'download' => '',
+            'technical' => '',
         ]);
         
         $files2 = [];

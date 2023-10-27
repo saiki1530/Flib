@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('ppt');
             $table->integer('assess');
             $table->integer('like');
+            $table->string('technical');
+            $table->integer('download');
             $table->string('product_slug');
             $table->integer('visibility');
             $table->timestamp('delete_at')->nullable();

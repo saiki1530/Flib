@@ -163,6 +163,20 @@
                                         </div>
                                         
                                     </div>
+                                    <div class="mb-3 row">
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label for="technical">Công nghệ áp dụng</label>
+                                                <input value="{{ old('technical') }}" type="text" name="technical" id="technical" class="form-control {{$errors->has('technical')?'is-invalid':''}}">
+                                                @if ($errors->has('technical'))
+                                                <div class="invalid-feedback">
+                                                    {{ $errors->first('technical') }}
+                                                </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
                                     
                                     <div class="mb-3 row">
                                         <div class="col-md-6">

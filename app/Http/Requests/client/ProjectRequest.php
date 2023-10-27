@@ -39,6 +39,8 @@ class ProjectRequest extends FormRequest
             'avt' => '',
             'assess' => '',
             'like' => '',
+            'download' => '',
+            'technical' => 'required | max:255'
         ];
     }
 
@@ -77,6 +79,8 @@ class ProjectRequest extends FormRequest
             'ppt.max' => 'Link powerpoint dự án tối đa :max kí tự',
             'source.required' => 'Link source code dự án không được để trống',
             'source.max' => 'Link source code dự án tối đa :max kí tự',
+            'technical.required' => 'Kỹ thuật áp dụng trong dự án không được để trống',
+            'technical.max' => 'Kỹ thuật áp dụng trong dự án tối đa :max kí tự',
         ];
     }
 }

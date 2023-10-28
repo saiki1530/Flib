@@ -12,4 +12,13 @@ class Field extends Model
     protected $fillable = [
         'name', 'amount','id'
     ];
+
+    //     'name',
+    //     'amount',
+    // ];
+    // public function projects()
+    // {
+    //     return $this->hasMany(Project::class, 'product_id');
+    // }
+
 }

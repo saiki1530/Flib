@@ -18,6 +18,10 @@
           <li><a href="services.html">Services</a></li> --}}
           <li><a href="{{route('project')}}" class="active">Projects</a></li>
           <li><a href="blog.html">Review</a></li>
+
+          {{-- <li><a href="{{ route('client.project.detail') }}" class="active">Projects</a></li>
+          <li><a href="{{ route('client.review.detail') }}">Review</a></li> --}}
+
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i
                 class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\client\ProjectController;
+use App\Http\Controllers\client\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,7 @@ Route::get('/project', [ListProjectController::class,'index'])->name('project');
 Route::get('/project-field/{id}',[ListProjectController::class,'field'])->name('project-field');
 
 Route::get('/project-details/{id}',[ProjectController::class,'index'])->name('project-details');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -48,3 +51,16 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::name('client')->as('client.')->group(function (){
+    Route::get('/project/detail', [ProjectController::class, 'projectDetail'])->name('project.detail');
+    Route::get('/review/detail', [ReviewController::class, 'reviewDetail'])->name('review.detail');
+});
+Route::name('client')->as('client.')
+    ->middleware('auth')
+    ->group(function (){
+    // Route::resource('project', ProjectController::class);
+    Route::get('/project/create', [ProjectController::class, 'create'])->name('project.create');
+    Route::post('/project', [ProjectController::class, 'store'])->name('project.store');
+    Route::get('/project/get-slug', [ProjectController::class, 'getSlug'])->name('project.slug');
+});

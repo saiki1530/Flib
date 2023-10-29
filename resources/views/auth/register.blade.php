@@ -1,52 +1,78 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+    <x-authentication-card>
+        <x-slot name="logo">
+            <x-authentication-card-logo />
+        </x-slot>
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+            <div>
+                <x-label for="name" value="{{ __('Name') }}" />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                @error('name')
+                    <p class="mt-1 text-[12px] text-red-500">{{ $message }}</p>
+                @enderror
+            </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <div class="mt-4">
+                <x-label for="email" value="{{ __('Email') }}" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                @error('email')
+                    <p class="mt-1 text-[12px] text-red-500">{{ $message }}</p>
+                @enderror
+            </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+            <div class="mt-4">
+                <x-label for="password" value="{{ __('Password') }}" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                @error('password')
+                    <p class="mt-1 text-[12px] text-red-500">{{ $message }}</p>
+                @enderror
+            </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+            <div class="mt-4">
+                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                @error('password_confirmation')
+                    <p class="mt-1 text-[12px] text-red-500">{{ $message }}</p>
+                @enderror
+            </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                <div class="mt-4">
+                    <x-label for="terms">
+                        <div class="flex items-center">
+                            <x-checkbox name="terms" id="terms" required />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                            <div class="ml-2">
+                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                    'terms_of_service' =>
+                                        '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Terms of Service') . '</a>',
+                                    'privacy_policy' =>
+                                        '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Privacy Policy') . '</a>',
+                                ]) !!}
+                            </div>
+                        </div>
+                    </x-label>
+                </div>
+            @endif
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+            <div class="flex items-center justify-between mt-4">
+                <a class="underline text-sm text-gray-600  hover:text-gray-900 rounded-md  " href="{{ route('login') }}">
+                    {{ __('Đã có tài khoản') }}
+                </a>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
+                <x-button class="ml-4">
+                    {{ __('Đăng ký ') }}
+                </x-button>
+            </div>
+            <div class="mt-4">
+                <a href="{{ route('auth.google') }}" class="flex items-center justify-center flex-1 border py-2 px-4 rounded-sm hover:bg-slate-200 hover:bg-opacity-20">
+                    <img class="mr-2" src="{{ asset('assets/img/icon/google.png') }}" alt="logo-google" width="20">
+                    đăng nhập với google
+                </a>
+            </div>
+        </form>
+    </x-authentication-card>
 </x-guest-layout>

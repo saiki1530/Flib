@@ -16,8 +16,14 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['string', 'max:255'],
+            'name' => ['string', 'max:255', 'min:3'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.min' => 'tên của bạn phải dài ích nhất 3 ký tự '
         ];
     }
 }

@@ -1825,10 +1825,7 @@ section {
   color: #838893;
 }
 
-.recent-blog-posts .post-item hr {
-  color: #888;
-  margin: 20px 0;
-}
+
 
 .recent-blog-posts .post-item .readmore {
   display: flex;

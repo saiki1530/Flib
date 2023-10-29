@@ -50,8 +50,6 @@ Route::middleware('auth')->group(function () {
     Route::post('new-reply',[CommentController::class,'addReply'])->name('new-reply');
 });
 
-require __DIR__.'/auth.php';
-
 Route::name('client')->as('client.')->group(function (){
     Route::get('/project/detail', [ProjectController::class, 'projectDetail'])->name('project.detail');
     Route::get('/review/detail', [ReviewController::class, 'reviewDetail'])->name('review.detail');

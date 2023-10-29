@@ -10,7 +10,7 @@
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>Projects</h2>
@@ -37,17 +37,26 @@
           </ul><!-- End Projects Filters -->
                 <div class="show-project">
                   @foreach ($data as $item)
-                    <a href="{{route('project-details',['id' => $item->id])}}">
-                      <div class="item-project">
-                          <div class="item-project-img">
-                              <img src="{{asset('assets/img/'.$item->avt.'')}}" alt="">
-                          </div>
-                          <div class="item-project-info">
-                              <span>{{$item->name}}</span>
-                              <p>october 24, 2023</p>
-                          </div>
-                      </div><!-- end -->
-                    </a>
+                  <a href="{{route('project-details',['id' => $item->id])}}">
+                    <div class="item-project">
+                        <div class="item-project-img">
+                          @php
+                           $imagePath = $item->avt;
+
+                            // Loại bỏ dấu ngoặc vuông và ngoặc kép từ chuỗi
+                            $cleanedPath = str_replace(['["', '"]'], '', $imagePath);
+
+                            // Lấy tên file từ đường dẫn đã làm sạch
+                            $fileName = basename($cleanedPath);
+                          @endphp
+                            <img src="{{asset('upload/images/project/'.$fileName.'')}}" alt="">
+                        </div>
+                        <div class="item-project-info">
+                            <span>{{$item->name}}</span>
+                            <p>october 24, 2023</p>
+                        </div>
+                    </div><!-- end -->
+                  </a>
                   @endforeach
                 </div>
 

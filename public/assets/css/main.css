@@ -2688,3 +2688,19 @@ section {
 .footer .footer-legal .credits a {
   color: var(--color-primary);
 }
+#item-show-benner{
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+#item-show-benner img{
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+}

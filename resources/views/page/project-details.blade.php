@@ -10,7 +10,7 @@
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>Project Details</h2>
@@ -30,8 +30,17 @@
           <div class="slides-1 portfolio-details-slider swiper">
             <div class="swiper-wrapper align-items-center">
               @foreach ($listImg as $item)
-                <div class="swiper-slide">
-                  <img src="/assets/img/{{$item}}" alt="">
+                <div class="swiper-slide" id="item-show-benner">
+                  @php
+                    $imagePath = $item;
+
+                    // Loại bỏ dấu ngoặc vuông và ngoặc kép từ chuỗi
+                    $cleanedPath = str_replace(['["', '"]'], '', $imagePath);
+
+                    // Lấy tên file từ đường dẫn đã làm sạch
+                    $fileName = basename($cleanedPath);
+                  @endphp
+                  <img src="/upload/images/project/{{$fileName}}" alt="">
                 </div>
               @endforeach
 
@@ -49,7 +58,10 @@
             <div class="portfolio-description">
               <h2>{{$data->name}}</h2>
               <p>
-                {{$data->introduction}}
+                @php
+                    $decodedHTML = html_entity_decode($data->introduction);
+                @endphp
+                {{$decodedHTML}}
               </p>
             </div>
           </div>

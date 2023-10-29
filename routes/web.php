@@ -7,10 +7,10 @@ use App\Http\Controllers\ListProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\client\ProjectController;
 use App\Http\Controllers\client\ReviewController;
+use App\Http\Controllers\ProjectDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ Route::get('/', [ProductController::class, 'index'])->name('home');
 Route::get('/project', [ListProjectController::class,'index'])->name('project');
 Route::get('/project-field/{id}',[ListProjectController::class,'field'])->name('project-field');
 
-Route::get('/project-details/{id}',[ProjectController::class,'index'])->name('project-details');
+Route::get('/project-details/{id}',[ProjectDetailController::class,'index'])->name('project-details');
 
 
 Route::get('/dashboard', function () {

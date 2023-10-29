@@ -37,18 +37,17 @@ class LoginGoogleController extends Controller
 
                 Auth::login($finduser);
 
-                return redirect()->intended('dashboard');
+                return redirect()->intended(route('home'));
             } else {
                 $newUser = User::updateOrCreate(['email' => $user->email], [
                     'name' => $user->name,
                     'google_id' => $user->id,
                     'password' => encrypt('123456dummy'),
-                    'avatar' => $user->avatar
+                    'profile_photo_path' => $user->avatar
                 ]);
 
                 Auth::login($newUser);
-
-                return redirect()->intended('dashboard');
+                return redirect()->intended(route('home'));
             }
         } catch (\Exception $e) {
             dd($e->getMessage());

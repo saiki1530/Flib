@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
+
 
 class ProfileController extends Controller
 {
@@ -21,11 +23,28 @@ class ProfileController extends Controller
         ]);
     }
 
+
+
     /**
      * Update the user's profile information.
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        $user = $request->user();
+        $user->fill($request->validated());
+
+        // Xử lý tệp ảnh đã tải lên
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            // Tuỳ chỉnh đường dẫn lưu hình ảnh tại đây
+            $avatar->move(public_path('public/assets/img/avatars/'), $filename);
+            $user->avatar = $filename;
+        }   
+        $user->save();
+
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -35,7 +54,17 @@ class ProfileController extends Controller
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
+
+        // Upload số dư
+        $user = User::find(auth()->user()->id);
+        $user->balance = $request->input('balance');
+        $user->save();
+
     }
+
+
+
+
 
     /**
      * Delete the user's account.

@@ -18,6 +18,10 @@ use App\Http\Controllers\ProjectController;
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
 Route::get('/project',[ProjectController::class,'project']);
+Route::get('/notify',[NotificationController::class,'notify']);
+Route::get('/usernoti',[NotificationController::class,'usernoti']);
+Route::get('/markasred/{id}',[NotificationController::class,'markasred'])->name('markasred');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

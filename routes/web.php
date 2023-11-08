@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProjectController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,10 @@ use App\Http\Controllers\ProductController;
 
 // ex : Route::get('/', [ProductController::class, 'index'])->name('home')->can('is_admin');
 Route::get('/', [ProductController::class, 'index'])->name('home');
+Route::get('/project',[ProjectController::class,'project']);
+Route::get('/notify',[NotificationController::class,'notify']);
+Route::get('/usernoti',[NotificationController::class,'usernoti']);
+Route::get('/markasred/{id}',[NotificationController::class,'markasred'])->name('markasred');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -38,7 +38,7 @@
 
         <!-- Template Main CSS File -->
         <link href="/assets/css/main.css" rel="stylesheet">
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
         @livewireStyles
     </head>
@@ -49,15 +49,6 @@
             @yield('noidung')
         </main>
         @include('layouts.footerUser')
-
-        <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<body>
-    @include('layouts.header-2')
-    @yield('noidung')
-   
-</main>
-    @include('layouts.footerUser')
 
     <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>

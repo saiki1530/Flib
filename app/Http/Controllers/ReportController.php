@@ -20,9 +20,9 @@ class ReportController extends Controller
                 'id_users' => $request->id_users,
                 'text_report'=>$request->your_text,
             ]);
-            return redirect('/favourite/' . $request->id_project)->withSuccess('Báo cáo thành công!');
+            return redirect('/project-details/' . $request->id_project)->withSuccess('Báo cáo thành công!');
         };
-        return redirect('/favourite/' . $request->id_project)->withError('Bạn đã báo cáo dự án này trước đó.');
+        return redirect('/project-details/' . $request->id_project)->withError('Bạn đã báo cáo dự án này trước đó.');
     }
     
 }

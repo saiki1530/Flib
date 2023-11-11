@@ -5,6 +5,8 @@
 @endsection
 @push('styles')
     <link rel="stylesheet" href="/assets/css/project.css">
+    <link rel="stylesheet" href="{{ asset('/assets/css/favourite.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/cmt.css') }}">
 @endpush
 @section('noidung')
 <main id="main">
@@ -23,6 +25,11 @@
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Projet Details Section ======= -->
+    @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
     <section id="project-details" class="project-details">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -70,11 +77,49 @@
             <div class="portfolio-info">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Category</strong> <span>Web design</span></li>
-                <li><strong>Client</strong> <span>ASU Company</span></li>
-                <li><strong>Project date</strong> <span>01 March, 2020</span></li>
-                <li><strong>Project URL</strong> <a href="#">www.example.com</a></li>
-                <li><a href="#" class="btn-visit align-self-start">Visit Website</a></li>
+                <div>
+                    <div class="project-item-favourite">
+                        @if ($check != "")
+                            <form action="{{route('delete-favourite')}}" method="post">
+                                @csrf
+                                @if(Auth::check())
+                                    <input type="hidden" name="id_users" value="{{ Auth::user()->id }}">
+                                @endif
+                                <input type="hidden" name="id_project" value="{{$data->id}}">
+                                <button class="favourite-button-love" type="submit"> <i class="fa-solid fa-check item-icon-check"></i> </button>
+                            </form>
+                        @else
+                            <form action="{{route('new-favourite')}}" method="post">
+                                @csrf
+                                @if(Auth::check())
+                                    <input type="hidden" name="id_users" value="{{ Auth::user()->id }}">
+                                @endif
+                                <input type="hidden" name="id_project" value="{{$data->id}}">
+                                <button class="favourite-button" type="submit"> <i class="fa-solid fa-heart item-icon-heart"></i> </button>
+                            </form>
+                        @endif
+                        <div class="project-item-repost">
+                            <div class="item-report">
+        
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                {{-- PHần nút respot --}}
+
+                @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        {{-- phần để hiện nút report --}}
+
+          <div class="project-item-report">
+                <button id="report-button-id" class="report-button" onclick="myFunction()">Report</button>
+          </div>
+        </div>
               </ul>
             </div>
           </div>
@@ -82,7 +127,30 @@
         </div>
 
       </div>
+      <div class="body-project-item-report">
+        <div id="item-report-id" class="item-report">
+            <div class="background-report">
+            </div>
+            <form action="{{route('report')}}" method="post">
+                @csrf
+                <div class="content-report">
+                    @if(Auth::check())
+                        <input type="hidden" name="id_users" value="{{ Auth::user()->id }}">
+                    @endif
+                    <input type="hidden" name="id_project" value="{{$data->id}}">
+                    <textarea class="content-report-text" name="your_text" rows="4" cols="50" placeholder="Nhập nội dung bạn muốn tố cáo"></textarea>
+                    <div class="content-report-button">
+                        <button class="report-button" type="submit">Report</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
     </section><!-- End Projet Details Section -->
 
   </main><!-- End #main -->
 @endsection
+@push('scripts')
+    <script src="{{ asset('/assets/js/favourite.js') }}"></script>
+    <script src="{{ asset('/assets/js/cmt.js') }}"></script>
+  @endpush

@@ -1,5 +1,5 @@
   @extends('layouts.layoutUser-2')
-  @push('style')
+  @push('styles')
     <link rel="stylesheet" href="{{ asset('assets/css/favourite.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/cmt.css') }}">
   @endpush
@@ -56,25 +56,25 @@
 
         <div class="project-item-report">
             <div id="item-report-id" class="item-report">
-                <div class="background-report">
-                </div>
-                <form action="{{route('report')}}" method="post">
-                    @csrf
-                    <div class="content-report">
-                        @if(Auth::check())
-                            <input type="hidden" name="id_users" value="{{ Auth::user()->id }}">
-                        @endif
-                        <input type="hidden" name="id_project" value="{{$dataid->id}}">
-                        <textarea class="content-report-text" name="your_text" rows="4" cols="50" placeholder="Nhập nội dung bạn muốn tố cáo"></textarea>
-                        <div class="content-report-button">
-                            <button class="report-button" type="submit">Report</button>
-                        </div>
+                    <div class="background-report">
                     </div>
-                </form>
+                    <form action="{{route('report')}}" method="post">
+                        @csrf
+                        <div class="content-report">
+                            @if(Auth::check())
+                                <input type="hidden" name="id_users" value="{{ Auth::user()->id }}">
+                            @endif
+                            <input type="hidden" name="id_project" value="{{$dataid->id}}">
+                            <textarea class="content-report-text" name="your_text" rows="4" cols="50" placeholder="Nhập nội dung bạn muốn tố cáo"></textarea>
+                            <div class="content-report-button">
+                                <button class="report-button" type="submit">Report</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <button id="report-button-id" class="report-button" onclick="myFunction()">Report</button>
             </div>
-            <button id="report-button-id" class="report-button" onclick="myFunction()">Report</button>
-          </div>
-  </div>
+        </div>
   {{-- Phần cmt -------------------------------------------------------------------------------------------------------------------------------------------------------------------------}}
   <section>
       <div class="project-cmt">
@@ -134,7 +134,7 @@
   </section> 
   @endsection
   @push('scripts')
-    <script src="{{ asset('assets/js/favourite.js') }}"></script>
-    <script src="{{ asset('assets/js/cmt.js') }}"></script>
+    <script src="{{ asset('/assets/js/favourite.js') }}"></script>
+    <script src="{{ asset('/assets/js/cmt.js') }}"></script>
   @endpush
   

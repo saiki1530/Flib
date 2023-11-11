@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\favourite;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectDetailController extends Controller
 {
@@ -26,6 +28,17 @@ class ProjectDetailController extends Controller
             $fileName = trim($file); // Loại bỏ khoảng trắng thừa nếu có
             $filesArray[] = $fileName; // Lưu tên file vào mảng $filesArray
         }
-        return view('page.project-details',['data' => $data, 'listImg' => $filesArray ]);
+        $comments = $data->comments;
+        $sortedComments = $comments->sortByDesc('created_at');
+        foreach ($comments as $key => $value) {
+            $replys = $value -> replys;
+        }
+        if (Auth::check()) {
+            $user = Auth::user()->id;
+        }
+        $checkfavourite = favourite::where('id_users', $user)
+                    ->where('id_project', $id)
+                    ->first();
+        return view('page.project-details',['data' => $data, 'listImg' => $filesArray,'check'=>$checkfavourite,'comment'=>$sortedComments ]);
     }
 }

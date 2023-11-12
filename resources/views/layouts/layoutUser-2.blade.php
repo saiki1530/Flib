@@ -30,7 +30,7 @@
 
     <!-- Template Main CSS File -->
     @stack('styles')
-    
+    @livewireStyles
     @stack('customCSS')
     <link href="/assets/css/main.css" rel="stylesheet">
 

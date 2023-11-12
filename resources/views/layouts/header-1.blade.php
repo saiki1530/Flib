@@ -16,31 +16,6 @@
                 <li><a href="services.html">Services</a></li> --}}
                 <li><a href="{{route('project')}}">Projects</a></li>
                 <li><a href="blog.html">Review</a></li>
-
-
-                {{-- <li><a href="{{ route('client.project.detail') }}">Projects</a></li>
-                <li><a href="{{ route('client.review.detail') }}">Review</a></li> --}}
-
-                <li class="dropdown"><a href="#"><span>Dropdown</span>
-                        <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                    <ul>
-                        <li><a href="#">Dropdown 1</a></li>
-                        <li class="dropdown"><a href="#"><span>Deep
-                                    Dropdown</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                            <ul>
-                                <li><a href="#">Deep Dropdown 1</a></li>
-                                <li><a href="#">Deep Dropdown 2</a></li>
-                                <li><a href="#">Deep Dropdown 3</a></li>
-                                <li><a href="#">Deep Dropdown 4</a></li>
-                                <li><a href="#">Deep Dropdown 5</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Dropdown 2</a></li>
-                        <li><a href="#">Dropdown 3</a></li>
-                        <li><a href="#">Dropdown 4</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
                 @if (Auth::check())
                     <li class="dropdown">
                         <a href="#">
@@ -74,16 +49,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
-                    <h2 data-aos="fade-down">Welcome to <span>UpConstruction</span></h2>
-                    <p data-aos="fade-up">Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit, sed do eiusmod
-                        tempor
-                        incididunt ut labore et dolore magna aliqua. Ut
-                        enim ad minim veniam, quis nostrud exercitation
-                        ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get
-                        Started</a>
+                    <h2 data-aos="fade-down">Welcome to <span>Flib</span></h2>
+                    <p data-aos="fade-up">Khám phá và theo dõi sản phẩm yêu thích một cách thuận lợi. Giao diện thân thiện, dễ sử dụng. Tận hưởng trải nghiệm lưu trữ sản phẩm tại đây!
+                        </p>
                 </div>
             </div>
         </div>
@@ -91,12 +59,11 @@
 
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
 
-        <div class="carousel-item active" style="background-image: url(assets/img/hero-carousel/hero-carousel-1.jpg)">
+        <div class="carousel-item active" style="background-image: url(assets/img/pn1.png)">
         </div>
-        <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-2.jpg)"></div>
-        <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-3.jpg)"></div>
-        <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-4.jpg)"></div>
-        <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-5.jpg)"></div>
+        <div class="carousel-item" style="background-image: url(assets/img/pn2.png)"></div>
+        <div class="carousel-item" style="background-image: url(assets/img/pn3.png)"></div>
+        <div class="carousel-item" style="background-image: url(assets/img/pn4.png)"></div>
 
         <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>

@@ -27,11 +27,7 @@ return new class extends Migration
             $table->string('technical');
             $table->integer('like');
             $table->string('technical');
-<<<<<<< HEAD
-            $table->integer('donwload');
-=======
             $table->integer('download');
->>>>>>> productDetail
             $table->string('product_slug');
             $table->integer('visibility');
             $table->timestamp('delete_at')->nullable();

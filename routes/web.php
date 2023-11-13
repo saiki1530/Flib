@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\item_page_projeck\ItemProjeckController;
@@ -11,6 +13,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\client\ProjectController;
 use App\Http\Controllers\client\ReviewController;
 use App\Http\Controllers\ProjectDetailController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,4 +65,19 @@ Route::name('client')->as('client.')
     Route::get('/project/create', [ProjectController::class, 'create'])->name('project.create');
     Route::post('/project', [ProjectController::class, 'store'])->name('project.store');
     Route::get('/project/get-slug', [ProjectController::class, 'getSlug'])->name('project.slug');
+});
+
+
+Route::name('admin')->as('admin.')->prefix('admin')
+    ->middleware('auth')
+    ->group(function (){
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    
+    Route::get('/project/index', [AdminProjectController::class, 'index'])->name('project.index');
+    Route::get('/project/create', [AdminProjectController::class, 'create'])->name('project.create');
+    Route::post('/project', [AdminProjectController::class, 'store'])->name('project.store');
+    Route::get('/project/{id}/edit', [AdminProjectController::class, 'edit'])->name('project.edit');
+    Route::put('/project/{id}', [AdminProjectController::class, 'update'])->name('project.update');
+    Route::delete('/project/{id}', [AdminProjectController::class, 'destroy'])->name('project.destroy');
+    Route::get('/project/get-slug', [AdminProjectController::class, 'getSlug'])->name('project.slug');
 });

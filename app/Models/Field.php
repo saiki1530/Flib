@@ -13,12 +13,9 @@ class Field extends Model
         'name', 'amount','id'
     ];
 
-    //     'name',
-    //     'amount',
-    // ];
-    // public function projects()
-    // {
-    //     return $this->hasMany(Project::class, 'product_id');
-    // }
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'id_field');
+    }
 
 }

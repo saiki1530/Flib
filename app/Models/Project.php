@@ -14,6 +14,7 @@ class Project extends Model
         return $this->hasMany(Comment::class, 'id_project');
     }
     use HasFactory ,Sluggable;
+    
     protected $table = 'project';
     protected $fillable = [
         'name',
@@ -38,7 +39,11 @@ class Project extends Model
                             'assess'=>0,'like'=>0, 'download'=>0, 'technical'=>''];
     public function Field()
     {
-        return $this->belongsTo(Field::class, 'product_id');
+        return $this->belongsTo(Field::class, 'id_field');
+    }
+    public function User()
+    {
+        return $this->belongsTo(User::class, 'id_users');
     }
     
     

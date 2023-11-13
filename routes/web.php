@@ -27,22 +27,24 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-
     Route::get('/', [ProductController::class, 'index'])->name('home');
     Route::get('/project', [ListProjectController::class,'index'])->name('project');
     Route::get('/project-field/{id}',[ListProjectController::class,'field'])->name('project-field');
-
     Route::get('/project-details/{id}',[ProjectDetailController::class,'index'])->name('project-details');
+
+Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/show-donwload',[FavouriteController::class,'showDonwload'])->name('show-donwload');
+
     Route::get('/favourite',[ItemProjeckController::class,'index']);
     Route::get('/favourite/{id}',[ItemProjeckController::class,'GetOne'])->name('GetOne');
     Route::post('/new-favourite',[FavouriteController::class,'addFavourite'])-> name('new-favourite');
     Route::post('/delete-favourite',[FavouriteController::class,'deleteFavourite'])-> name('delete-favourite');
+    Route::post('/donwload',[FavouriteController::class,'donwload'])->name('donwload');
 
     Route::post('/report',[ReportController::class,'addReport'])->name('report');
 

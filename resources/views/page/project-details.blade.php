@@ -119,6 +119,13 @@
           <div class="project-item-report">
                 <button id="report-button-id" class="report-button" onclick="myFunction()">Report</button>
           </div>
+          <div class="body-button-donwload">
+            <form action="{{route('donwload')}}" method="post">
+              @csrf
+                <input type="hidden" name="id_project" value="{{$data->id}}">
+                <input class="item-button-donwload" type="submit" value="Donwload">
+            </form>
+        </div>
         </div>
               </ul>
             </div>
@@ -146,6 +153,7 @@
             </form>
         </div>
       </div>
+      
     </section><!-- End Projet Details Section -->
 
   </main><!-- End #main -->

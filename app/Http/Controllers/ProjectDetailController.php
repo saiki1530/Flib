@@ -33,12 +33,24 @@ class ProjectDetailController extends Controller
         foreach ($comments as $key => $value) {
             $replys = $value -> replys;
         }
-        if (Auth::check()) {
-            $user = Auth::user()->id;
+        if (Auth::user() && Auth::user()->id) {
+            // Nếu có giá trị, thực hiện truy vấn để kiểm tra favorite
+            $checkfavourite = favourite::where('id_users', Auth::user()->id)
+                            ->where('id_project', $id)
+                            ->first();
+        
+            // Kiểm tra xem $checkfavourite có tồn tại hay không
+            if ($checkfavourite) {
+                // Đã tồn tại, thực hiện các hành động khi favorite đã tồn tại
+                // Ví dụ: return 1;
+            } else {
+                // Không tồn tại, thực hiện các hành động khi favorite chưa tồn tại
+                // Ví dụ: return 0;
+            }
+        } else {
+            $checkfavourite = "";
         }
-        $checkfavourite = favourite::where('id_users', $user)
-                    ->where('id_project', $id)
-                    ->first();
+        
         return view('page.project-details',['data' => $data, 'listImg' => $filesArray,'check'=>$checkfavourite,'comment'=>$sortedComments ]);
     }
 }

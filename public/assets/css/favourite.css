@@ -138,3 +138,16 @@
       margin: 0 auto;
       text-align: right;
     }
+    .item-button-donwload{
+      width: 120px;
+      height: 40px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      color: #fff;
+      background-color: rgb(45, 227, 81);
+  }
+  .body-button-donwload{
+    margin-top: 20px;
+  }

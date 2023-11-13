@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -170,6 +171,8 @@ return [
         App\Providers\EventServiceProvider::class,
         // Other service providers…
         App\Providers\RouteServiceProvider::class,
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
+
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
     ])->toArray(),

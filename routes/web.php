@@ -19,10 +19,8 @@ use App\Http\Controllers\ProjectController;
 
 // ex : Route::get('/', [ProductController::class, 'index'])->name('home')->can('is_admin');
 Route::get('/', [ProductController::class, 'index'])->name('home');
-Route::get('/project',[ProjectController::class,'project']);
-Route::get('/notify',[NotificationController::class,'notify']);
-Route::get('/usernoti',[NotificationController::class,'usernoti']);
-Route::get('/markasred/{id}',[NotificationController::class,'markasred'])->name('markasred');
+Route::get('/project/{id?}',[ProjectController::class,'project'])->name('project');
+Route::post('/project/{projectId}/download', [ProjectController::class, 'download'])->name('project.download');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

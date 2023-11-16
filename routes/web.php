@@ -24,8 +24,9 @@ use App\Http\Controllers\ProjectDetailController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');});
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->name('admin.dashboard');
 
 
     Route::get('/', [ProductController::class, 'index'])->name('home');

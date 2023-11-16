@@ -7,10 +7,14 @@ use App\Http\Controllers\ListProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\client\ProjectController;
 use App\Http\Controllers\client\ReviewController;
 use App\Http\Controllers\ProjectDetailController;
+=======
+use App\Http\Controllers\ProjectController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +26,16 @@ use App\Http\Controllers\ProjectDetailController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// sử dụng gate gate để validation admin route()->can('is_admin') 
+
+
+
+// ex : Route::get('/', [ProductController::class, 'index'])->name('home')->can('is_admin');
+Route::get('/', [ProductController::class, 'index'])->name('home');
+Route::get('/project',[ProjectController::class,'project']);
+Route::get('/notify',[NotificationController::class,'notify']);
+Route::get('/usernoti',[NotificationController::class,'usernoti']);
+Route::get('/markasred/{id}',[NotificationController::class,'markasred'])->name('markasred');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -33,6 +47,9 @@ Route::get('/dashboard', function () {
     Route::get('/project-details/{id}',[ProjectDetailController::class,'index'])->name('project-details');
 
 Route::middleware('auth')->group(function () {
+
+=======
+Route::middleware(['auth', 'can:profile_user'])->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

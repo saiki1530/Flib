@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\item_page_projeck\ItemProjeckController;
 use App\Http\Controllers\ListProjectController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
@@ -26,6 +28,11 @@ use App\Http\Controllers\ProjectController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+<<<<<<< HEAD
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->name('admin.dashboard');
+=======
 // sử dụng gate gate để validation admin route()->can('is_admin') 
 
 
@@ -36,10 +43,8 @@ Route::get('/project',[ProjectController::class,'project']);
 Route::get('/notify',[NotificationController::class,'notify']);
 Route::get('/usernoti',[NotificationController::class,'usernoti']);
 Route::get('/markasred/{id}',[NotificationController::class,'markasred'])->name('markasred');
+>>>>>>> a2175b2ce3b3c9a5526b1d5c77fee20fc5b6c347
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::get('/', [ProductController::class, 'index'])->name('home');
     Route::get('/project', [ListProjectController::class,'index'])->name('project');
@@ -68,6 +73,7 @@ Route::middleware(['auth', 'can:profile_user'])->group(function () {
     Route::post('new-comment',[CommentController::class,'addComment'])->name('new-comment');
     Route::post('new-reply',[CommentController::class,'addReply'])->name('new-reply');
 });
+Route::get('/search',[SearchController::class,'search'])->name('search');
 
 Route::name('client')->as('client.')->group(function (){
     Route::get('/project/detail', [ProjectController::class, 'projectDetail'])->name('project.detail');

@@ -26,7 +26,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+<<<<<<< HEAD
+        'password', 'avatar', 'google_id', 'role',
+=======
         'password', 'avatar', 'google_id', 'is_admin'
+>>>>>>> a2175b2ce3b3c9a5526b1d5c77fee20fc5b6c347
     ];
 
     /**
@@ -49,7 +53,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
     /**
      * The accessors to append to the model's array form.
      *

@@ -22,10 +22,7 @@
 
                 <div class="section-header">
                     <h2>Top Donwload</h2>
-                    <p>Nulla dolorum nulla nesciunt rerum facere sed ut
-                        inventore quam porro nihil id ratione ea sunt
-                        quis dolorem
-                        dolore earum</p>
+                    <p>Lượt tải xuống dự án đang được ưa chuộng nhất thời gian gần đây</p>
                 </div>
 
                 <div class="row gy-4">
@@ -60,10 +57,7 @@
 
                 <div class="section-header">
                     <h2>New Project</h2>
-                    <p>Nulla dolorum nulla nesciunt rerum facere sed ut
-                        inventore quam porro nihil id ratione ea sunt
-                        quis dolorem
-                        dolore earum</p>
+                    <p>Dự án mới nhất được cập nhật</p>
                 </div>
 
                 <div class="row gy-4">
@@ -86,7 +80,7 @@
                                 </div>
                             </a>
                         </div><!-- End Card Item -->
-                   
+
                     @endforeach
 
                 </div>
@@ -96,7 +90,7 @@
         <!-- End New Project -->
 
         <!-- ======= Alt Services Section ======= -->
-       
+
 
         <!-- ======= Features Section ======= -->
         <section id="features" class="features section-bg">
@@ -104,7 +98,7 @@
 
                 <ul class="nav nav-tabs row  g-2 d-flex">
                     @php
-                        $i = 0;        
+                        $i = 0;
                     @endphp
                     @foreach ($field as $item)
                         @php
@@ -141,11 +135,11 @@
                                         <img src="assets/img/{{$item->avt}}" alt class="img-fluid">
                                     </a>
                                 </div>
-                                
+
                             </div>
                         </div><!-- End tab content item -->
                     @endforeach
-                    
+
 
                 </div>
 

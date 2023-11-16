@@ -4,9 +4,10 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Laravel\Socialite\Facades\Socialite;
 
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 class LoginGoogleController extends Controller
 {
 
@@ -15,6 +16,14 @@ class LoginGoogleController extends Controller
      *
      * @return void
      */
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.dashboard');
+        }
+
+        return redirect()->route('/'); // Hoặc chuyển hướng đến route khác cho người dùng thông thường
+    }
     public function redirectToGoogle()
     {
 

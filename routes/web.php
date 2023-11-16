@@ -9,10 +9,14 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\client\ProjectController;
 use App\Http\Controllers\client\ReviewController;
 use App\Http\Controllers\ProjectDetailController;
+=======
+use App\Http\Controllers\ProjectController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +28,22 @@ use App\Http\Controllers\ProjectDetailController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+<<<<<<< HEAD
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
+=======
+// sử dụng gate gate để validation admin route()->can('is_admin') 
+
+
+
+// ex : Route::get('/', [ProductController::class, 'index'])->name('home')->can('is_admin');
+Route::get('/', [ProductController::class, 'index'])->name('home');
+Route::get('/project',[ProjectController::class,'project']);
+Route::get('/notify',[NotificationController::class,'notify']);
+Route::get('/usernoti',[NotificationController::class,'usernoti']);
+Route::get('/markasred/{id}',[NotificationController::class,'markasred'])->name('markasred');
+>>>>>>> a2175b2ce3b3c9a5526b1d5c77fee20fc5b6c347
 
 
     Route::get('/', [ProductController::class, 'index'])->name('home');
@@ -35,6 +52,9 @@ Route::get('/admin/dashboard', function () {
     Route::get('/project-details/{id}',[ProjectDetailController::class,'index'])->name('project-details');
 
 Route::middleware('auth')->group(function () {
+
+=======
+Route::middleware(['auth', 'can:profile_user'])->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

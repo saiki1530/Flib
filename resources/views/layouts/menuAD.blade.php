@@ -15,10 +15,9 @@
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{route('admin.allsp')}}">Quản lý sản phẩm</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="../../admin/allus">Quản Lý người dùng</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.alldm')}}">Quản Lý danh mục</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.allbl')}}">Quản lý bình luận</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.alltg')}}">Quản Lý tác giả</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.allus')}}">Quản Lý người dùng</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.allfd')}}">Quản Lý môn học</a></li>
+
                 </ul>
             </div>
         </li>

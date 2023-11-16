@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FieldController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavouriteController;
@@ -14,9 +16,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\client\ProjectController;
 use App\Http\Controllers\client\ReviewController;
 use App\Http\Controllers\ProjectDetailController;
-=======
-use App\Http\Controllers\ProjectController;
-
+use App\Models\Field;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,22 +28,48 @@ use App\Http\Controllers\ProjectController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-<<<<<<< HEAD
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
-=======
-// sử dụng gate gate để validation admin route()->can('is_admin') 
+// Hiển thị form đăng nhập
+
+
+Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.submit');
+Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/admin/danhmuc', [AdminController::class, 'alldm'])->name('admin.alldm');
+Route::get('/admin/product', [AdminController::class, 'allsp'])->name('admin.allsp');
+// Route::get('/product/editfun/{id}', [AdminController::class, 'editfun'])->name('admin.editfun');
+// Route::post('/product/updateinfo', [AdminController::class, 'updateinfo'])->name('admin.updateinfo');
+Route::delete('/deletesp/{id}', [AdminController::class, 'deletesp'])->name('admin.deletesp');
+
+Route::get('/admin/user', [UserController::class, 'allus'])->name('admin.allus');
+Route::delete('/deleteus/{id}', [UserController::class, 'deleteus'])->name('admin.deleteus');
+Route::get('/user/editus/{id}', [UserController::class, 'editus']);
+Route::post('/user/editus/{id}', [UserController::class, 'updateus']);
+Route::get('/user/add', [UserController::class, 'createacc'])->name('admin.createacc');
+Route::post('/addus', [UserController::class, 'addus'])->name('admin.addus');
+
+Route::post('/thaydoitrangthai', [AdminController::class, 'thayDoiTrangThai']);
+
+Route::get('/admin/field', [FieldController::class, 'allfd'])->name('admin.allfd');
+Route::delete('/deletefd/{id}', [FieldController::class, 'deletefd'])->name('admin.deletefd');
+Route::get('/field/editfd/{id}', [FieldController::class, 'editfd']);
+Route::post('/field/editfd/{id}', [FieldController::class, 'updatefd']);
+Route::get('/field/add', [FieldController::class, 'createfield'])->name('admin.createfield');
+Route::post('/addfd', [FieldController::class, 'addfd'])->name('admin.addfd');
+
+Route::get('/product/add', [AdminController::class, 'createPro'])->name('admin.createPro');
+Route::get('/product/{slug}', [AdminController::class, 'onePro'])->name('admin.onePro');
+Route::post('/addPro', [AdminController::class, 'addPro'])->name('admin.addPro');
+
+Route::get('/product/edit/{slug}', [AdminController::class, 'editPro'])->name('admin.editPro');
+Route::put('/updatePro/{id}', [AdminController::class, 'updatePro'])->name('admin.updatePro');
+
+Route::delete('/delete/{id}', [AdminController::class, 'deletePro'])->name('admin.delete');
+Route::delete('/product/destroy/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
+Route::post('/product/restore/{id}', [AdminController::class, 'restore'])->name('admin.restoreProduct');
 
 
 
-// ex : Route::get('/', [ProductController::class, 'index'])->name('home')->can('is_admin');
-Route::get('/', [ProductController::class, 'index'])->name('home');
-Route::get('/project',[ProjectController::class,'project']);
-Route::get('/notify',[NotificationController::class,'notify']);
-Route::get('/usernoti',[NotificationController::class,'usernoti']);
-Route::get('/markasred/{id}',[NotificationController::class,'markasred'])->name('markasred');
->>>>>>> a2175b2ce3b3c9a5526b1d5c77fee20fc5b6c347
 
 
     Route::get('/', [ProductController::class, 'index'])->name('home');
@@ -51,9 +77,7 @@ Route::get('/markasred/{id}',[NotificationController::class,'markasred'])->name(
     Route::get('/project-field/{id}',[ListProjectController::class,'field'])->name('project-field');
     Route::get('/project-details/{id}',[ProjectDetailController::class,'index'])->name('project-details');
 
-Route::middleware('auth')->group(function () {
 
-=======
 Route::middleware(['auth', 'can:profile_user'])->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -16,8 +16,15 @@
     <!-- Kết thúc thư viện CSS cho trang này -->
     <!-- Chèn CSS -->
     <link rel="stylesheet" href="/admin/css/style.css">
+    <script src="{{ asset('/sweetalert/sweetalert.js') }}"></script>
+    <!-- Include jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Include SweetAlert library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Kết thúc chèn CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="shortcut icon" href="/admin/images/favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}

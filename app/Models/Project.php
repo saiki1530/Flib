@@ -41,8 +41,8 @@ class Project extends Model
     {
         return $this->belongsTo(Field::class, 'product_id');
     }
-    
-    
+
+
     public function sluggable(): array
     {
         return [
@@ -53,11 +53,5 @@ class Project extends Model
     }
 
 
-
-class Project extends Model
-{
-    protected $table = 'project';
-    protected $primaryKey = 'id';
-    use HasFactory;
 
 }

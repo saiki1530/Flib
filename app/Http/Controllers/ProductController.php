@@ -20,11 +20,11 @@ class ProductController extends Controller
 // Lặp qua từng trường Field
         foreach ($field as $item) {
             $maxDownload = Project::where('id_field', $item->id)->max('download');
-            
+
             $projectWithMaxDownload = Project::where('id_field', $item->id)
                 ->where('download', $maxDownload)
                 ->first();
-            
+
             $projects[] = $projectWithMaxDownload;
         }
         return view('page.index', ['topDonwload' => $topDownloads, 'newProject' => $newProject, 'field' =>  $field, 'projectField' =>$projects]);

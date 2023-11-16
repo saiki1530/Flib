@@ -49,7 +49,16 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
-                    <h2 data-aos="fade-down">Welcome to <span>Flib</span></h2>
+                    <form action="{{ route('search') }}" class="form_box d-flex justify-content-between w-100" method="GET" name="search">
+                        @csrf
+                        <div class="input-group">
+                            <button type="submit" class="btn btn-get-started mr-0 pr-0" id="submit">
+                                <i class="fa fa-university" aria-hidden="true"></i>
+                            </button>
+                            <input type="search" id="form1" name="searchteacher" placeholder="Tìm kiếm thông tin..." data-aos="fade-up" data-aos-delay="200" class="form-control btn-get-started" style="margin-left:-10;" />
+                        </div>
+                    </form>
+
                     <p data-aos="fade-up">Khám phá và theo dõi sản phẩm yêu thích một cách thuận lợi. Giao diện thân thiện, dễ sử dụng. Tận hưởng trải nghiệm lưu trữ sản phẩm tại đây!
                         </p>
                 </div>

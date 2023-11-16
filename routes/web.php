@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\item_page_projeck\ItemProjeckController;
 use App\Http\Controllers\ListProjectController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReportController;
@@ -22,10 +24,9 @@ use App\Http\Controllers\ProjectDetailController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::get('/', [ProductController::class, 'index'])->name('home');
     Route::get('/project', [ListProjectController::class,'index'])->name('project');
@@ -51,6 +52,7 @@ Route::middleware('auth')->group(function () {
     Route::post('new-comment',[CommentController::class,'addComment'])->name('new-comment');
     Route::post('new-reply',[CommentController::class,'addReply'])->name('new-reply');
 });
+Route::get('/search',[SearchController::class,'search'])->name('search');
 
 Route::name('client')->as('client.')->group(function (){
     Route::get('/project/detail', [ProjectController::class, 'projectDetail'])->name('project.detail');

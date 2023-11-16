@@ -32,6 +32,7 @@
         <link href="/assets/css/main.css" rel="stylesheet">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    @stack('styles')
         @livewireStyles
     </head>
 

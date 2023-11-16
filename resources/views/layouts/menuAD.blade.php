@@ -7,31 +7,23 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="mdi mdi-circle-outline menu-icon"></i>
-                <span class="menu-title">Quản lý</span>
-                <i class="menu-arrow"></i>
+            <a class="nav-link" href="{{route('admin.allsp')}}">
+                <i class="bi bi-boxes menu-icon"></i>
+                <span class="menu-title">Quản lý sản phẩm</span>
             </a>
-            <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.allsp')}}">Quản lý sản phẩm</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.allus')}}">Quản Lý người dùng</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.allfd')}}">Quản Lý môn học</a></li>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.allus')}}">
+                <i class="bi bi-people menu-icon"></i>
+                <span class="menu-title">Quản Lý người dùng</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.allfd')}}">
+                <i class="bi bi-bookmark-heart menu-icon"></i>
+                <span class="menu-title">Quản Lý môn học</span>
+            </a>
+        </li>
 
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/admin/allorder">
-                <i class="mdi mdi-view-headline menu-icon"></i>
-                <span class="menu-title">Đơn hàng</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-                <i class="mdi mdi-chart-pie menu-icon"></i>
-                <span class="menu-title">Biểu đồ</span>
-            </a>
-        </li>
     </ul>
 </nav>

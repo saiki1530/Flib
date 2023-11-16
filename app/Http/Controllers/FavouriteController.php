@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\favourite;
+use App\Models\Invoices;
 use App\Models\Project;
 use App\Models\Purse;
 use Illuminate\Http\Request;
@@ -41,6 +42,13 @@ class FavouriteController extends Controller
             $dataCheck->save();
             $data = $request->all();
             $project = Project::find($data['id_project']);
+            Invoices::create([
+                'id_users' => Auth::user()->id,
+                'id_project' => $project->id,
+                'transaction' => 1,
+                'status' => 1,
+                'total' => -10
+            ]);
             $dataProject = [
                 'source' => $project->source, 'ppt' => $project->ppt
             ];
